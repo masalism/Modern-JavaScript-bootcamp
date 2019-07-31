@@ -3,8 +3,8 @@
 // 90 - 100 = A, 80 - 89 = B, 70 - 79 = C, 60 - 69 = D, 0-59 - F
 
 
-let studentScore = function (score, posMaxScore) {
-    let scorePercentage = (score / posMaxScore) * 100
+const studentScore = function (score, posMaxScore) {
+    const scorePercentage = (score / posMaxScore) * 100
     let letterGrade = ''
 
     if (scorePercentage >= 90) {
@@ -22,6 +22,6 @@ let studentScore = function (score, posMaxScore) {
     return `${score}/${posMaxScore} -> you got an ${letterGrade} (${scorePercentage}%)`
 }
 
-let score = studentScore(68, 100)
+const score = studentScore(68, 100)
 
 console.log(score)
