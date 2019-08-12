@@ -1,7 +1,9 @@
 const todos = ['Eat', 'Take a shower', 'Walk a dog', 'Have an argument', 'Master JavaScript']
 
-console.log(`You have ${todos.length} todos`)
+todos.splice(2, 1)
+todos.push('Do nothing')
+todos.shift()
 
-console.log(`Todo: ${todos[1]}`)
-console.log(`Todo: ${todos[todos.length - 2]}`)
+console.log(`You have ${todos.length} todos`)
+console.log(todos)
 
