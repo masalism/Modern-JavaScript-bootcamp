@@ -1,18 +1,33 @@
-const todos = ['Eat', 'Take a shower', 'Walk a dog', 'Have an argument', 'Master JavaScript']
+const todos = [{
+    text: 'Eat',
+    completed: true
+}, {
+    text: 'Take a shower',
+    completed: false
+}, {
+    text: 'Walk a dog',
+    completed: true
+}, {
+    text: 'Have an argument',
+    completed: true
+}, {
+    text: 'Master JavaScript',
+    completed: false
+}]
 
-todos.splice(2, 1)
-todos.push('Do nothing')
-todos.shift()
+const deleteTodo = function (todos, todoText) {
+    const index = todos.findIndex(function (todo, index) {
+        return todo.text.toLowerCase() === todoText.toLowerCase()
+    })
+    if (index > -1) {
+        todos.splice(index, 1)
+    }
+}
 
-console.log(`You have ${todos.length} todos`)
+// 2. Create function to remove a todo bytext value
+// 3.
 
-todos.forEach(function (todo, index) { 
-    const num = index + 1
-    console.log(`${num}. ${todo}!`)
-})
+deleteTodo(todos, 'take a shwer')
 
-// for (let i = 0; i < todos.length; i++) {
-//     const num = i +1
-//     const todo = todos[i]
-//     console.log(`${num}. ${todo}!`)
-// }
+console.log(todos)
+
