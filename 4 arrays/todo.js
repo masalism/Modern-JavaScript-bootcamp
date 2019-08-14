@@ -1,9 +1,9 @@
 const todos = [{
     text: 'Eat',
-    completed: true
+    completed: false
 }, {
     text: 'Take a shower',
-    completed: false
+    completed: true
 }, {
     text: 'Walk a dog',
     completed: true
@@ -24,10 +24,15 @@ const deleteTodo = function (todos, todoText) {
     }
 }
 
-// 2. Create function to remove a todo bytext value
-// 3.
+const getThingsToDo = function(todos) {
+    return todos.filter(function (todo, index) {
+        return !todo.completed // === false
+    })
+}
 
-deleteTodo(todos, 'take a shwer')
+console.log(getThingsToDo(todos))
 
-console.log(todos)
+
+// deleteTodo(todos, 'take a shwer')
+// console.log(todos)
 
