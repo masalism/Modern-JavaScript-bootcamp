@@ -29,10 +29,15 @@ todos.forEach(function(todo) {
     document.querySelector('body').appendChild(p)
 })
 
+// Listen for new todo creation
 document.querySelector('#add-todo').addEventListener('click', function(e) {
     console.log('button was clicked')
 })
 
+//Listen for todo text change
+document.querySelector('#new-todo-text').addEventListener('input', function(e) {
+    console.log(e.target.value)
+})
 
 // const paragraphs = document.querySelectorAll('p')
 
