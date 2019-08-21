@@ -15,16 +15,11 @@ const notes = [{
 // const p = document.querySelector('p')
 // p.remove()
 
-//query all and remove
+//query all and revoe
 const ps = document.querySelectorAll('p')
 
 ps.forEach(function (p) {
-    p.textContent = '******'
+    p.textContent = '*****'
     // console.log(p.textContent)
     // p.remove()
 })
-
-// Add a new element
-const newParagraph = document.createElement('p')
-newParagraph.textContent = 'This is a new element from JS'
-document.querySelector('body').appendChild(newParagraph)
