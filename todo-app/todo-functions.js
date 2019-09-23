@@ -1,7 +1,3 @@
-// 1 wire up button event
-// 2remove todo by id
-// 3 save and rerender the todos
-
 // Fetch existing todos from localStorage
 const getSavedTodos = function () {
     const todosJSON = localStorage.getItem('todos')
@@ -58,6 +54,17 @@ const removeTodo = function (id) {
     }
 }
 
+// toggle the comleted value for a given todo
+const toggleTodo = function(id) {
+    const todo = todos.find(function(todo) {
+        return todo.id === id
+    })
+
+    if(todo !== undefined) {
+        todo.completed = !todo.completed
+    }
+}
+
 // Get the DOM elements for an individual todo
 const generateTodoDOM = function (todo) {
     const todoEl = document.createElement('div')
@@ -67,7 +74,13 @@ const generateTodoDOM = function (todo) {
 
     // Setup todo checkbox
     checkbox.setAttribute('type', 'checkbox')
+    checkbox.checked = todo.completed
     todoEl.appendChild(checkbox)
+    checkbox.addEventListener('change', function(e) {
+        toggleTodo(todo.id)
+        saveTodos(todos)
+        renderTodos(todos, filters)
+    })
 
     // Setup the todo text
     todoText.textContent = todo.text
