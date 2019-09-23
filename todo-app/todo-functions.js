@@ -1,3 +1,7 @@
+// 1 wire up button event
+// 2remove todo by id
+// 3 save and rerender the todos
+
 // Fetch existing todos from localStorage
 const getSavedTodos = function () {
     const todosJSON = localStorage.getItem('todos')
@@ -41,7 +45,17 @@ const renderTodos = function (todos, filters) {
     filteredTodos.forEach(function (todo) {
         document.querySelector('#todos').appendChild(generateTodoDOM(todo))
     })
+}
 
+// Remove todo by id
+const removeTodo = function (id) {
+    const todoIndex = todos.findIndex(function (todo) {
+        return todo.id === id
+    })
+
+    if (todoIndex > -1) {
+        todos.splice(todoIndex, 1)
+    }
 }
 
 // Get the DOM elements for an individual todo
@@ -60,8 +74,14 @@ const generateTodoDOM = function (todo) {
     todoEl.appendChild(todoText)
 
     // Setup the remove button
-    removeButton.textContent = 'x' 
+    removeButton.textContent = 'x'
     todoEl.appendChild(removeButton)
+
+    removeButton.addEventListener('click', function () {
+        removeTodo(todo.id)
+        saveTodos(todos)
+        renderTodos(todos, filters)
+    })
 
     return todoEl
 }
