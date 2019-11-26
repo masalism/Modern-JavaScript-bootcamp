@@ -47,3 +47,38 @@ window.addEventListener('storage', function (e) {
     }
 })
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// const now = moment()
+
+// now.subtract(1, 'week').subtract(20, 'days')
+// console.log(now.format('MMMM Do, YYYY'))
+// console.log(now.fromNow())
+// const nowTimestamp = now.valueOf()
+
+// console.log(moment(nowTimestamp).toString())
+
+// const birthday = moment()
+// birthday.year(1990).month(1).date(10)
+// console.log(birthday.format('MMM D, YYYY'))
+
