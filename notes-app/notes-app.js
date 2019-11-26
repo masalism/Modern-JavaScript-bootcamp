@@ -1,4 +1,4 @@
-const notes = getSavedNotes()
+let notes = getSavedNotes()
 
 const filters = {
     searchText: ''
@@ -7,13 +7,14 @@ const filters = {
 renderNotes(notes, filters)
 
 document.querySelector('#create-note').addEventListener('click', function (e) {
+    const id = uuidv4()
     notes.push({
-        id: uuidv4(),
+        id: id,
         title: '',
         body: ''
     })
     saveNotes(notes)
-    renderNotes(notes, filters)
+    location.assign(`/edit.html#${id}`)
 })
 
 document.querySelector('#search-text').addEventListener('input', function (e) {
@@ -25,7 +26,42 @@ document.querySelector('#filter-by').addEventListener('change', function (e) {
     console.log(e.target.value)
 })
 
+window.addEventListener('storage', function(e) {
+    if (e.key === 'notes') {
+        notes = JSON.parse(e.newValue)
+        renderNotes(notes, filters)
+    }
+})
 
+
+
+
+// // Unix Epoch - January 1st 00:00:00
+// // 1000
+// const now = new Date()
+// const timestamp = now.getTime()
+
+// const myDate = new Date(timestamp)
+// console.log(myDate.getFullYear())
+
+// // console.log(`Year: ${now.getFullYear()}`)
+// // console.log(`Month: ${now.getMonth()}`)
+// // console.log(`Day of the month: ${now.getDate()}`)
+// // console.log(`Hours: ${now.getHours()}`)
+// // console.log(`Minutes: ${now.getMinutes()}`)
+// // console.log(`Seconds: ${now.getSeconds()}`)
+
+// const date1 = new Date('March 1 2018 12:00:00')
+// const date2 = new Date()
+
+// const date1timestamp = date1.getTime()
+// const date2timestamp = date2.getTime()
+
+// if (date1timestamp < date2timestamp) {
+//     console.log(date2.toString())
+// } else if(date2timestamp < date1timestamp) {
+//     conso.log(date1.toString())
+// }
 
 
 
