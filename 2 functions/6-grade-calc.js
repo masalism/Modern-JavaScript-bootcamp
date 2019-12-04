@@ -4,24 +4,30 @@
 
 
 const studentScore = function (score, posMaxScore) {
-    const scorePercentage = (score / posMaxScore) * 100
-    let letterGrade = ''
-
-    if (scorePercentage >= 90) {
-        letterGrade = 'A'       
-    } else if (scorePercentage >= 80) {
-        letterGrade = 'B'     
-    } else if (scorePercentage >= 70) {
-        letterGrade = 'C'   
-    } else if (scorePercentage >= 60) {
-        letterGrade = 'D'    
-    } else {
-        letterGrade = 'F' 
+    if (typeof score !== 'number' || typeof totalScore !== 'number') {
+        throw Error('Please provide numbers only')
     }
 
-    return `${score}/${posMaxScore} -> you got an ${letterGrade} (${scorePercentage}%)`
+    const scorePercentage = (score / posMaxScore) * 100
+        let letterGrade = ''
+
+        if (scorePercentage >= 90) {
+            letterGrade = 'A'
+        } else if (scorePercentage >= 80) {
+            letterGrade = 'B'
+        } else if (scorePercentage >= 70) {
+            letterGrade = 'C'
+        } else if (scorePercentage >= 60) {
+            letterGrade = 'D'
+        } else {
+            letterGrade = 'F'
+        }
+
+        return `${score}/${posMaxScore} -> you got an ${letterGrade} (${scorePercentage}%)`
 }
-
-const score = studentScore(68, 100)
-
-console.log(score)
+try {
+    const score = studentScore(68, 100)
+    console.log(score)
+} catch (e) {
+    console.log(e.message)
+}
