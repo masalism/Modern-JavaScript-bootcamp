@@ -1,41 +1,32 @@
-// function - input (argument), code, output (return value)
+// Function - input (arguments), code, output (return value)
 
 let greetUser = function () {
-    console.log('Welcome user!')
+    console.log('Welcome user');
 }
 
-greetUser()
-greetUser()
-greetUser()
+greetUser();
+greetUser();
+greetUser();
 
 let square = function (num) {
-    let result = num * 3
-    return result
+    let result = num * num;
+    return result;
 }
 
 let value = square(3)
-let other = square(10)
+let otherValue = square(10)
+console.log(value);
+console.log(otherValue);
 
-console.log(value)
-console.log(other)
+// convertFahreiheitToCelsius
 
-// CHALLENGE //
-
-// convertFahrenheitToCelsius
-
-// Call a couple of times
-
-// Print converted value
-
-let convertFahrenheitToCelsius = function(temp) {
-    let toCelsius = (temp -32) / 1.8
-    return toCelsius;
+let convertFahreiheitToCelsius = function (fah) {
+    let celsius = (fah -32) / 1.8;
+    return celsius;
 }
 
-let temp1 = convertFahrenheitToCelsius(32)
-let temp2 = convertFahrenheitToCelsius(89)
-let temp3 = convertFahrenheitToCelsius(68)
+let temp1 = convertFahreiheitToCelsius(90);
+let temp2 = convertFahreiheitToCelsius(68);
+console.log(temp1);
+console.log(temp2);
 
-console.log(temp1)
-console.log(temp2)
-console.log(temp3)

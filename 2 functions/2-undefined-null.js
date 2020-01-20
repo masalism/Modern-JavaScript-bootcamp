@@ -1,26 +1,24 @@
-//Undefined for variable
-let name
-name = 'Mantas'
+// Undefined for variable
+let name;
+
+name = 'Jen';
 
 if (name === undefined) {
-    console.log('Please provide a name')
+    console.log('Please provide a name');
 } else {
-    console.log(name)
+    console.log(name);
 }
 
 // Undefined for function arguments
 // Undefined as function return default value
-
 let square = function (num) {
-    console.log(num)
+    console.log(num);
 }
 
-let result = square()
-console.log(result)
+let result = square();
+console.log(result);
 
-// Null has assigned value
-let age = 29
-
-age = null
-
-console.log(age)
+// Null as assigned value
+let age = 27;
+age = null;
+console.log(age);
