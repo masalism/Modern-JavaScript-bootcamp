@@ -1,5 +1,5 @@
-let getStudentScore = function (score, possibleScore) {
-    let grade = score / possibleScore * 100;
+const getStudentScore = function (score, possibleScore) {
+    const grade = score / possibleScore * 100;
     let letterGrade = '';
     if (grade >= 90) {
         letterGrade = 'A';
@@ -16,10 +16,10 @@ let getStudentScore = function (score, possibleScore) {
     return `You got an ${letterGrade} (${grade}%)`;
 }
 
-let score1 = getStudentScore(80, 100);
-let score2 = getStudentScore(48, 50);
-let score3 = getStudentScore(9, 10);
-let score4 = getStudentScore(7456, 10000);
+const score1 = getStudentScore(80, 100);
+const score2 = getStudentScore(48, 50);
+const score3 = getStudentScore(9, 10);
+const score4 = getStudentScore(7456, 10000);
 
 console.log(score1);
 console.log(score2);
