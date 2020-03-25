@@ -1,33 +1,92 @@
 // Prototypal Inherintance
+// myPerson --> Person.prototype --> Object.prototype --> null
 
-'Mantas'.toLowerCase();
+// 'Mantas'.toLowerCase();
 
-const Person = function (firstName, lastName, age, likes =[]) {
-    this.firstName = firstName;
-    this.lastName = lastName;
-    this.age = age;
-    this.likes = likes;
+class Person {
+    constructor(firstName, lastName, age, likes = []) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.age = age;
+        this.likes = likes;
+    }
+
+    getBio() {
+        let bio = `${this.firstName} is ${this.age}.`;
+
+        this.likes.forEach((like) => {
+            bio = bio + ` ${this.firstName} likes ${like}.`
+        });
+
+        return bio;
+    }
+
+    set fullName(fullName) {
+        const names = fullName.split(' ');
+        this.firstName = names[0];
+        this.lastName = names[1];
+    }
+    get fullName() {
+        return `${this.firstName} ${this.lastName}`;
+    }
+};
+
+class Employee extends Person {
+    constructor(firstName, lastName, age, position, likes) {
+        super(firstName, lastName, age, likes);
+        this.position = position;
+    }
+
+    getBio() {
+        return `${this.fullName} is a ${this.position}.`;
+    }
+    
+    getYearsLeft() {
+        return 65 - this.age;
+    }
 }
 
-Person.prototype.getBio = function () {
-    let bio = `${this.firstName} is ${this.age}`;
+class Student extends Person {
+    constructor(firstName, lastName, age, grade, likes) {
+        super(firstName, lastName, age, likes);
+        this.grade = grade;
+    }
 
-    this.likes.forEach((like) => {
-        bio = bio + ` ${this.firstName} likes ${like}.`
-    });
+    updateGrade(change) {
+        this.grade = this.grade + change;
+    }
 
-    return bio;
+    getBio() {
+        const status = this.grade >= 70 ? 'passing' : 'failing';
+        return `${this.firstName} is ${status} the class.`;
+    }
 }
 
-Person.prototype.setName = function (fullName) {
-    const names = fullName.split(' ');
-    this.firstName = names[0];
-    this.lastName = names[1];
-}
-
-const me = new Person('Mantas', 'Masalis', 30, ['Teaching', 'Biking']);
-me.setName('Alexis Turner');
+const me = new Employee('Mantas', 'Masalis', 34, 'No one', []);
+me.fullName = 'Clancey Turner';
 console.log(me.getBio());
 
-const person2 = new Person('Darius', 'Tulauskas', 28);
-console.log(person2.getBio());
+
+// const Person = function (firstName, lastName, age, likes =[]) {
+//     this.firstName = firstName;
+//     this.lastName = lastName;
+//     this.age = age;
+//     this.likes = likes;
+// }
+
+// Person.prototype.getBio = function () {
+//     let bio = `${this.firstName} is ${this.age}`;
+
+//     this.likes.forEach((like) => {
+//         bio = bio + ` ${this.firstName} likes ${like}.`
+//     });
+
+//     return bio;
+// }
+
+// Person.prototype.setName = function (fullName) {
+//     const names = fullName.split(' ');
+//     this.firstName = names[0];
+//     this.lastName = names[1];
+// }
+
